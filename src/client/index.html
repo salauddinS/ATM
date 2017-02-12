@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="ATMapp">
+
+<head>
+    <meta charset="utf-8">
+    <title>ATMapp</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <link rel="stylesheet" href="/node_modules/bootstrap-css-only/css/bootstrap.min.css">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- endinject -->
+</head>
+<body>
+    <div id="applicationHost" class="container body-content admin-appHost">
+        <div data-ng-include="'/app/layout/shell.html'"></div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <span class="pull-right text-info credit">Base App</span>
+        </div>
+    </div>
+
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    
+   
+
+    <!-- inject:js -->
+    
+    <script src="app/app.js"></script>
+    
+    <script src="app/layout/shell.controller.js"></script>
+    
+    <script src="app/services/authService.js"></script>
+    
+    <script src="app/features/login/login.controller.js"></script>
+    
+    <script src="app/features/login/routes.js"></script>
+    
+    <!-- endinject -->
+</body>
+
+</html>
