@@ -2,7 +2,8 @@
     'use strict';
     var app = angular.module('ATMapp', [
         'ui.bootstrap',
-        'ui.router'
+        'ui.router',
+        'ui.bootstrap.tpls'
     ]);
 
     app.factory('httpRequestInterceptor', function () {

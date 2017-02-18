@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Message</h3>
+</div>
+<div class="modal-body">
+    <div ng-if="vm.transaction.isValid">
+        <div>There are your <b>${{vm.transaction.amountToWithDraw}}</b></div>
+        <div>Current Balanc is <b>${{vm.transaction.currentBalance}}</b></div>
+    </div>
+    <div ng-if="!vm.transaction.isValid">
+        <div><b>Error : {{vm.transaction.message}}</b></div>
+    </div>
+    <br/>
+    <h4><span class="label label-warning">Please do not forget to remove the card</span><h4>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK ({{vm.counter}})</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+</div>
