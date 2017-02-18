@@ -14,7 +14,7 @@
     <!-- endinject -->
 </head>
 <body>
-    <div id="applicationHost" class="container body-content admin-appHost">
+    <div  class="">
         <div data-ng-include="'/app/layout/shell.html'"></div>
     </div>
 
@@ -35,19 +35,29 @@
     
     <script src="app/app.js"></script>
     
-    <script src="app/layout/shell.controller.js"></script>
+    <script src="app/services/admin.service.js"></script>
     
     <script src="app/services/atm.service.js"></script>
     
     <script src="app/services/auth.service.js"></script>
     
-    <script src="app/features/balance/balance.controller.js"></script>
+    <script src="app/layout/shell.controller.js"></script>
     
-    <script src="app/features/balance/routes.js"></script>
+    <script src="app/features/admin/admin.cotroller.js"></script>
+    
+    <script src="app/features/admin/admin.routes.js"></script>
     
     <script src="app/features/login/login.controller.js"></script>
     
+    <script src="app/features/login/login.controller.unit.spec.js"></script>
+    
     <script src="app/features/login/routes.js"></script>
+    
+    <script src="app/features/balance/balance.controller.js"></script>
+    
+    <script src="app/features/balance/balance.controller.unit.spec.js"></script>
+    
+    <script src="app/features/balance/routes.js"></script>
     
     <script src="app/features/message/message.controller.js"></script>
     

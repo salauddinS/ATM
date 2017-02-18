@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 require('./auth/auth')(app);
+require('./admin/adminApi')(app);
 
 app.get('/', function (req, res) {
     res.render('index.html');

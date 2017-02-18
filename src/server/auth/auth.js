@@ -1,6 +1,5 @@
 var utils = require('./../utils/utils');
 var accounts = require('./../accounts');
-var fs = require('fs');
 
 var authenticate = function (req, res) {
     var cardNumber = req.body.userName
