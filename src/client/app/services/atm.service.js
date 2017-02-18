@@ -9,7 +9,7 @@
     function atmService($http) {
         var service = {
             getUserDetail: getUserDetail,
-            checkAmount:checkAmount
+            withdrawAmount:withdrawAmount
         };
         return service;
 
@@ -17,8 +17,8 @@
         function getUserDetail() {
             return $http.get('api/ATM/GetUserDetails');
         }
-        function checkAmount(payload) {
-            return $http.post('api/ATM/CheckAmount',payload);
+        function withdrawAmount(payload) {
+            return $http.post('api/ATM/Widthdraw',payload);
         }
     }
 })();

@@ -22,7 +22,7 @@ var authenticate = function (req, res) {
 var getUserDetails = function (req, res) {
     res.json(req.user);
 }
-var checkAmount = function (req, res) {
+var widthdrawAmount = function (req, res) {
     var transaction = { isValid: false };
     var amountToWithDraw = parseInt(req.body.amountToWithDraw);
     var index = accounts.findIndex(function (acc) {
@@ -30,7 +30,7 @@ var checkAmount = function (req, res) {
             return acc;
         }
     })
-    if (accounts[index].currentBalance > amountToWithDraw) {
+    if (accounts[index].currentBalance >= amountToWithDraw) {
         accounts[index].currentBalance = accounts[index].currentBalance - amountToWithDraw
         transaction.isValid = true;
         transaction.amountToWithDraw = amountToWithDraw;
@@ -43,5 +43,5 @@ var checkAmount = function (req, res) {
 module.exports = function (app) {
     app.post('/api/auth/Authenticate', authenticate);
     app.get('/api/ATM/GetUserDetails', utils.EnsureAuthenticated, getUserDetails);
-    app.post('/api/ATM/CheckAmount', utils.EnsureAuthenticated, checkAmount);
+    app.post('/api/ATM/Widthdraw', utils.EnsureAuthenticated, widthdrawAmount);
 }

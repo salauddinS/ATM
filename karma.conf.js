@@ -13,11 +13,11 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            './vendor/angular/angular.js',
-            './vendor/angular-bootstrap/ui-bootstrap.min.js',
-            './vendor/angular-bootstrap/ui-bootstrap-tpls.js',
-            './vendor/angular-ui-router/release/angular-ui-router.js',
-            './vendor/angular-mocks/angular-mocks.js',
+            './node_modules/angular/angular.min.js',
+            './node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
+            './node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+            './node_modules/angular-ui-router/release/angular-ui-router.min.js',
+            './node_modules/angular-mocks/angular-mocks.js',
             './src/client/app/**/*.js',
             './src/client/app/*.js',
         ],

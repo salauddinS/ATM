@@ -19,7 +19,7 @@ gulp.task('scripts', function () {
         .pipe(plugins.size());
 });
 gulp.task('unit', function (done) {
-    log('Starting Unit testing');
+    //log('Starting Unit testing');
     new Server({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true

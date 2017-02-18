@@ -22,9 +22,9 @@
         };
 
         function getUserDetail() {
-            atmService.getUserDetail().success(function (response) {
-                vm.userDetail = response;
-            }).error(function (err) {
+            atmService.getUserDetail().then(function (response) {
+                vm.userDetail = response.data;
+            },function (err) {
                 console.log(err);
             });
         }
@@ -34,10 +34,10 @@
         }
 
         function withdrawMoney() {
-            atmService.checkAmount({ amountToWithDraw: vm.withdrawalAmt }).success(function (response) {
-                console.log(response)
-                open(response);
-            }).error(function (err) {
+            atmService.withdrawAmount({ amountToWithDraw: vm.withdrawalAmt }).then(function (response) {
+                console.log(response.data)
+                open(response.data);
+            },function (err) {
                 console.log(err);
             });
         }

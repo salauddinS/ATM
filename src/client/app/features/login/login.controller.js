@@ -18,12 +18,12 @@
             }
         }
         function login() {
-            authService.login(vm.user).success(function (response) {
-                localStorage.setItem('accessToken', response.token);
+            authService.login(vm.user).then(function (response) {
+                localStorage.setItem('accessToken', response.data.token);
                 $rootScope.$broadcast('loggedInSuccessfull')
                 $location.path('/balance');
-            }).error(function (err) {
-                vm.isRouteLoading = false;
+            },function (err) {
+                console.log(err)
             });
         }
     }
