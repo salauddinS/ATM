@@ -21,10 +21,10 @@ body {
     background-color: #f5f5f5;
 }
 
-.container {
+/*.container {
     width: auto;
     padding: 0 15px;
-}
+}*/
 
 .container .credit {
     margin: 20px 0;
@@ -61,7 +61,7 @@ body {
   z-index: 2;
 }
 .form-signin input[type="text"] {
-  margin-bottom: -1px;
+  margin-bottom: 15px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -70,3 +70,11 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.table-balance-info tr td {
+    line-height: normal !important;
+    border: none !important;
+    vertical-align: middle !important;
+}
+
+.table-balance-info tr td:first-child{ width:15%; text-align: right;}

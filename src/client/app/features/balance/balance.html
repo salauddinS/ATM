@@ -1,0 +1,60 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Account Information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-balance-info">
+                        <tr>
+                            <td ng-model="vm.user.userName"><b>Account Holder Name</b></td>
+                            <td>Salauddin Shaikh</td>
+                        </tr>
+                        <tr>
+                            <td ng-model="vm.user.accountNumber"><b>Account Number</b></td>
+                            <td>#12345678901234567890</td>
+                        </tr>
+                        <tr>
+                            <td ng-model="vm.user.cardNumber"><b>Card Number</b></td>
+                            <td>#1234567812345678</td>
+                        </tr>
+                        <tr>
+                            <td ng-model="vm.user.expirationDate"><b>Expiration Date</b></td>
+                            <td>08/2019</td>
+                        </tr>
+                        <tr>
+                            <td ng-model="vm.user.balanceAmount"><b>Balance Amount</b></td>
+                            <td>$ 5000</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button class="btn btn-primary" type="button" ng-click="vm.showPanel()">Withdraw Money</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="panel panel-primary" ng-show="vm.panelVisibility">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-balance-info">
+                        <tr>
+                            <td><b>Withdrawal Amount</b></td>
+                            <td><input type="text" class="form-control" ng-model="vm.user.withdrawalAmt" placeholder="Enter Amount" required="" autofocus="" /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button class="btn btn-primary" type="button" ng-click="vm.withdrawMoney()" >Confirm</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
