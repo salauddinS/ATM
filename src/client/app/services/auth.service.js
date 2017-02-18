@@ -14,7 +14,7 @@
 
         ////////////////
         function login(request) {
-            return $http.post('api/auth/authenticate', request);
+            return $http.post('api/auth/Authenticate', request);
         }
     }
 })();

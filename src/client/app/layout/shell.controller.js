@@ -13,12 +13,19 @@
         activate();
 
         function activate() {
-           vm.menus=[];
+            if (localStorage.getItem('accessToken') !== null) {
+                $rootScope.isAuthenticated = vm.isAuthenticated = true;
+                $location.path('/balance');
+            } else {
+                $location.path('/login');
+            }
+
         }
 
         function logout() {
             $rootScope.isAuthenticated = vm.isAuthenticated = false;
             $location.path('/login');
+            localStorage.clear();
         }
         $rootScope.$on('loggedInSuccessfull', function () {
             $rootScope.isAuthenticated = vm.isAuthenticated = true;

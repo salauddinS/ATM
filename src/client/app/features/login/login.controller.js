@@ -19,9 +19,9 @@
         }
         function login() {
             authService.login(vm.user).success(function (response) {
-                localStorage.setItem('token', response.token);
+                localStorage.setItem('accessToken', response.token);
                 $rootScope.$broadcast('loggedInSuccessfull')
-                $location.path('/');
+                $location.path('/balance');
             }).error(function (err) {
                 vm.isRouteLoading = false;
             });

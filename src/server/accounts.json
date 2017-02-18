@@ -1,0 +1,32 @@
+[{
+    "cardNumber":"1234",
+    "expirationDate":"12/2020",
+    "accountNumber":"3216549876543214",
+    "pinCode":"1234",
+    "userName":"Jhon",
+    "currentBalance":5000
+},
+{
+    "cardNumber":"1234567891011121",
+    "expirationDate":"12/2020",
+    "accountNumber":"3216549876543214",
+    "pinCode":"1234",
+    "userName":"Jhon",
+    "currentBalance":5000
+},
+{
+    "cardNumber":"1234567891011122",
+    "expirationDate":"12/2020",
+    "accountNumber":"3216549876543215",
+    "pinCode":"1234",
+    "userName":"Jhon",
+    "currentBalance":5000
+},
+{
+    "cardNumber":"1234567891011122",
+    "expirationDate":"12/2020",
+    "accountNumber":"3216549876543215",
+    "pinCode":"1234",
+    "userName":"Jhon",
+    "currentBalance":5000
+}]

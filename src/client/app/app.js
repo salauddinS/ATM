@@ -5,7 +5,19 @@
         'ui.router'
     ]);
 
-    app.run(['$state', function ($state) {
-        // Include $state to kick start the router.
-    }]);
+    app.factory('httpRequestInterceptor', function () {
+        return {
+            request: function (config) {
+                if (localStorage.getItem('accessToken') !== null) {
+                    config.headers['Authorization'] = 'Bearer ' + localStorage.getItem('accessToken');
+                }
+                config.headers['Accept'] = 'application/json;odata=verbose';
+                return config;
+            }
+        };
+    });
+
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('httpRequestInterceptor');
+    });
 })();
