@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-require('./auth/auth')(app);
+require('./api/api')(app);
 require('./admin/adminApi')(app);
 
 app.get('/', function (req, res) {
