@@ -1,10 +1,52 @@
-    <div class="wrapper">
-    <form class="form-signin">
-        <h2 class="form-signin-heading">Please login</h2>
-        <input type="text" class="form-control" ng-model="vm.user.userName" id="userName" name="username" placeholder="xxxx-xxxx-xxxx-xxxx" required=""
-        autofocus="" />
-        <input type="password" class="form-control" ng-model="vm.user.password" id="password" name="password" placeholder="Password" required=""
-        />
-        <button class="btn btn-lg btn-primary btn-block" id="loginBtn" ng-click="vm.login()" type="submit">Login</button>
-    </form>
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        <span class="caption-subject text-uppercase">Welcome to our ATM</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <h3>Please Login</h3>
+                    <form class="form-horizontal" name="myForm">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3 col-md-3  col-xs-12">Card Number:</label>
+                            <div class="col-sm-2 col-md-1 col-xs-3">
+                                <input type="text" class="form-control" ng-model="vm.box1" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits"
+                                    required>
+                            </div>
+                            <div class="col-sm-2 col-md-1 col-xs-3">
+                                <input type="text" class="form-control" ng-model="vm.box2" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits"
+                                    required>
+                            </div>
+                            <div class="col-sm-2 col-md-1 col-xs-3">
+                                <input type="text" class="form-control" ng-model="vm.box3" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits"
+                                    required>
+                            </div>
+                            <div class="col-sm-2 col-md-1 col-xs-3">
+                                <input type="text" class="form-control" ng-model="vm.box4" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Pin Code:</label>
+                            <div class="col-sm-4">
+                                <input type="text" ng-model="vm.user.password" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Four digits pin code"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-4">
+                                <button type="button" ng-disabled="myForm.$invalid" id="loginBtn" ng-click="vm.login()" class="btn btn-primary">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+</div>
 </div>
