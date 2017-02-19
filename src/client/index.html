@@ -7,60 +7,78 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <link rel="stylesheet" href="/node_modules/bootstrap-css-only/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-css-only/css/bootstrap.min.css">
 
     <!-- inject:css -->
     <link rel="stylesheet" href="assets/css/main.css">
     <!-- endinject -->
 </head>
-<body>
-    <div  class="">
-        <div data-ng-include="'/app/layout/shell.html'"></div>
-    </div>
 
-    <div id="footer">
-        <div class="container">
-            <span class="pull-right text-info credit">Base App</span>
+<body>
+    <div ng-controller="RootController as vm">
+        <div id="adminNavBar" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">
+                            <i class="icon-home"></i>
+                            <span>ATM App</span>
+                        </a>
+                </div>
+                <div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
+                    <ul class="nav navbar-nav pull-right">
+                        <li ng-if="vm.isAuthenticated">
+                            <a href="" data-toggle="collapse" data-target=".navbar-collapse" ng-click="vm.logout()">
+                            Logout
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        <ui-view></ui-view>
     </div>
 
     <script src="/node_modules/angular/angular.min.js"></script>
     <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
     <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
     <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-    
-   
 
     <!-- inject:js -->
-    
+
     <script src="app/app.js"></script>
-    
+
+    <script src="app/root.controller.js"></script>
+
     <script src="app/services/admin.service.js"></script>
-    
+
     <script src="app/services/atm.service.js"></script>
-    
+
     <script src="app/services/auth.service.js"></script>
-    
-    <script src="app/layout/shell.controller.js"></script>
-    
+
     <script src="app/features/admin/admin.cotroller.js"></script>
-    
+
     <script src="app/features/admin/admin.routes.js"></script>
-    
-    <script src="app/features/login/login.controller.js"></script>
-    
-    <script src="app/features/login/login.controller.unit.spec.js"></script>
-    
-    <script src="app/features/login/routes.js"></script>
-    
+
     <script src="app/features/balance/balance.controller.js"></script>
-    
+
     <script src="app/features/balance/balance.controller.unit.spec.js"></script>
-    
+
     <script src="app/features/balance/routes.js"></script>
-    
+
+    <script src="app/features/login/login.controller.js"></script>
+
+    <script src="app/features/login/login.controller.unit.spec.js"></script>
+
+    <script src="app/features/login/routes.js"></script>
+
     <script src="app/features/message/message.controller.js"></script>
-    
+
     <!-- endinject -->
 </body>
 

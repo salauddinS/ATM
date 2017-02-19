@@ -85,16 +85,15 @@ body {
     vertical-align: middle !important;
 }
 
-.table-balance-info tr td:first-child{ width:15%; text-align: right;}
+.table-balance-info tr td:first-child{ width:40%; text-align: right;}
 
-
-
-
-
-
-
-
-
+.modal.in .modal-dialog{
+	top:100px
+}
+.help-block
+{
+  color:#a94442;
+}
 
 .content {
 	padding: 30px;

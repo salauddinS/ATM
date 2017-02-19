@@ -7,13 +7,14 @@ var getAccountList = function (req, res) {
 
 var saveAccount = function (req, res) {
     var account = req.body;
+    account.id = accounts[accounts.length-1].id + 1
     accounts.push(account)
     res.send();
 }
 var editAccount = function (req, res) {
     var account = req.body;
     var index = accounts.findIndex(function (acc) {
-        if (acc.cardNumber === account.cardNumber) {
+        if (acc.id === account.id) {
             return acc;
         }
     })
@@ -23,7 +24,7 @@ var editAccount = function (req, res) {
 var deleteAccount = function (req, res) {
     var account = req.body;
     var index = accounts.findIndex(function (acc) {
-        if (acc.cardNumber === account.cardNumber) {
+        if (acc.id === account.id) {
             return acc;
         }
     })

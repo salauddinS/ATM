@@ -1,25 +1,22 @@
 (function () {
     'use strict';
 
-    angular.module('ATMapp').controller('ShellCtrl', ShellCtrl);
+    angular.module('ATMapp').controller('RootController', RootController);
 
-    ShellCtrl.$inject = ['$rootScope', '$location'];
+    RootController.$inject = ['$rootScope', '$location'];
 
-    function ShellCtrl($rootScope, $location) {
-        /* jshint validthis:true */
+    function RootController($rootScope, $location) {
         var vm = this;
         $rootScope.isAuthenticated = vm.isAuthenticated = false;
         vm.logout = logout;
         activate();
 
         function activate() {
-            if (localStorage.getItem('accessToken') !== null) {
-                $rootScope.isAuthenticated = vm.isAuthenticated = true;
-                $location.path('/balance');
+            if (localStorage.getItem('accessToken') === null) {
+               $location.path('/login');
             } else {
-                $location.path('/login');
+                $rootScope.isAuthenticated = vm.isAuthenticated = true;
             }
-
         }
 
         function logout() {

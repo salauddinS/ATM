@@ -41,43 +41,23 @@ gulp.task('watch', ['serve'], function () {
     gulp.watch(paths.appScripts, ['scripts']);
 });
 gulp.task('server', function () {
-    log('Starting Server For e2e testing');
+    console.log('Starting Server ');
     plugins.nodemon({
         script: './src/server/server.js', ext: 'js html', env: { 'NODE_ENV': 'development' }
-        })
+    })
         .on('restart', function () {
-            log('server restarted!');
-        });
-});
-gulp.task('e2e', ['server'], function () {
-    console.log('Starting e2e testing');
-    var args = ['--baseUrl', 'http://localhost:9001'];
-    gulp.src(['./src/client/app/features/**/*.e2e.spec.js'])
-        .pipe(protractor({
-            configFile: __dirname + '/protractor-config.js',
-            args: args,
-            keepAlive: true
-        }))
-        .on('end', function () {
-            log('E2E Testing complete');
-            process.exit();
-        })
-        .on('error', function (error) {
-            log('E2E Tests failed');
-            process.exit(1);
+            console.log('server restarted!');
         });
 });
 
 gulp.task('injectjs', function () {
-    var target = gulp.src(config.index);
-    var sources = gulp.src([paths.appScripts]);
-
-    return target.pipe(plugins.inject(sources, { relative: true }))
-        .pipe(gulp.dest('./src'));
+    return gulp.src(config.index)
+        .pipe(plugins.inject(gulp.src(config.js), { relative: true }))
+        .pipe(gulp.dest('src/client'));
 
 });
 
-gulp.task('default', function () {
+gulp.task('default',['injectjs'], function () {
     // require('opn')('http://localhost:9000');
     var isDev = true
     var nodeOptions = {
@@ -91,24 +71,24 @@ gulp.task('default', function () {
     };
 
     return plugins.nodemon(nodeOptions)
-        .on('restart',  function (event) {
-            log('nodemon restarted');
-            log('files changed on restart:\n' + event);
+        .on('restart', function (event) {
+           console.log('nodemon restarted');
+             console.log('files changed on restart:\n' + event);
             setTimeout(function () {
                 browserSync.notify('reloading now ...');
                 browserSync.reload({ stream: false });
             }, 1000);
         })
         .on('start', function () {
-            log('nodemon started');
+            console.log('nodemon started');
             startBrowserSync(isDev);
         })
         .on('crash', function (event) {
-            log('nodemon crashed: script crashed for some reason');
-            log('files changed on restart:\n' + event);
+             console.log('nodemon crashed: script crashed for some reason');
+             console.log('files changed on restart:\n' + event);
         })
         .on('exit', function () {
-            log('nodemon exited cleanly');
+           console.log('nodemon exited cleanly');
         });
 });
 
@@ -121,17 +101,6 @@ gulp.task('connect', function () {
     //         .on('listening', function () {
     //             console.log('Started connect web server on http://localhost:9000');
     //         });
-});
-
-gulp.task('wiredep', function () {
-    // var options = config.getWiredepDefaultOptions();
-    // var wiredep = require('wiredep').stream;
-
-    return gulp
-        .src(config.index)
-        //.pipe(wiredep(options))
-        .pipe(plugins.inject(gulp.src(config.js), { relative: true }))
-        .pipe(gulp.dest('src/client'));
 });
 
 

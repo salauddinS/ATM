@@ -14,7 +14,7 @@
         vm.isAddEdit = false;
         vm.onEdit = onEdit;
         vm.onDelete = onDelete;
-        vm.onAddClick = onAddClick;
+        vm.onAddClick = onAddClick ;
         vm.onCancel = onCancel;
         vm.onSave = onSave;
 

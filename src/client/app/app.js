@@ -12,7 +12,7 @@
                 if (localStorage.getItem('accessToken') !== null) {
                     config.headers['Authorization'] = 'Bearer ' + localStorage.getItem('accessToken');
                 }
-                config.headers['Accept'] = 'application/json;odata=verbose';
+                config.headers['Accept'] = 'application/json';
                 return config;
             }
         };

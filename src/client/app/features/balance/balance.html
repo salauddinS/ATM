@@ -1,59 +1,73 @@
-<div class="wrapper">
+<div class="content">
     <div class="container">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Account Information</h3>
-            </div>
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-balance-info">
-                        <tr>
-                            <td ng-model="vm.user.userName"><b>Account Holder Name</b></td>
-                            <td>{{vm.userDetail.userName}}</td>
-                        </tr>
-                        <tr>
-                            <td ng-model="vm.user.accountNumber"><b>Account Number :</b></td>
-                            <td>{{vm.userDetail.accountNumber}}</td>
-                        </tr>
-                        <tr>
-                            <td ng-model="vm.user.cardNumber"><b>Card Number :</b></td>
-                            <td>{{vm.userDetail.cardNumber}}</td>
-                        </tr>
-                        <tr>
-                            <td ng-model="vm.user.expirationDate"><b>Expiration Date :</b></td>
-                            <td>{{vm.userDetail.expirationDate}}</td>
-                        </tr>
-                        <tr>
-                            <td ng-model="vm.user.balanceAmount"><b>Balance Amount :</b></td>
-                            <td>$ {{vm.userDetail.currentBalance}}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <button class="btn btn-primary" type="button" ng-click="vm.showPanel()">Withdraw Money</button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+        <div class="row">
+            <div class="col-md-7 col-sm-7">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                            <span class="caption-subject text-uppercase">Account Details</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="table-responsive">
+                            <table class="table table-balance-info">
+                                <tr>
+                                    <td><b>Account Holder Name</b></td>
+                                    <td>{{vm.userDetail.userName}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Account Number :</b></td>
+                                    <td>{{vm.userDetail.accountNumber}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Card Number :</b></td>
+                                    <td>{{vm.userDetail.cardNumber}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Expiration Date :</b></td>
+                                    <td>{{vm.userDetail.expirationDate}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Balance Amount :</b></td>
+                                    <td>$ {{vm.userDetail.currentBalance}}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button class="btn btn-primary" type="button" ng-click="vm.showPanel()">Withdraw Money</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
 
+
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="panel panel-primary" ng-show="vm.panelVisibility">
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-balance-info">
-                        <tr>
-                            <td><b>Withdrawal Amount</b></td>
-                            <td><input type="text" class="form-control" ng-model="vm.withdrawalAmt" placeholder="Enter Amount"
-                                    required="" autofocus="" /></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <button class="btn btn-primary" type="button" ng-click="vm.withdrawMoney()">Confirm</button>
-                            </td>
-                        </tr>
-                    </table>
+         
+            <div class="col-md-5 col-sm-5">
+                <div class="portlet" ng-show="vm.panelVisibility">
+
+                    <div class="portlet-body">
+
+                        <div class="table-responsive">
+                            <table class="table table-balance-info">
+                                <tr>
+                                    <td><b>Withdrawal Amount</b></td>
+                                    <td><input type="text" class="form-control" ng-model="vm.withdrawalAmt" placeholder="Enter Amount"
+                                            required="" autofocus="" /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button class="btn btn-primary" type="button" ng-click="vm.withdrawMoney()">Confirm</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

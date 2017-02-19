@@ -4,7 +4,7 @@
 <div class="modal-body">
     <div ng-if="vm.transaction.isValid">
         <div>There are your <b>${{vm.transaction.amountToWithDraw}}</b></div>
-        <div>Current Balanc is <b>${{vm.transaction.currentBalance}}</b></div>
+        <div>Current Balance is <b>${{vm.transaction.currentBalance}}</b></div>
     </div>
     <div ng-if="!vm.transaction.isValid">
         <div><b>Error : {{vm.transaction.message}}</b></div>
@@ -14,5 +14,4 @@
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK ({{vm.counter}})</button>
-    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
 </div>

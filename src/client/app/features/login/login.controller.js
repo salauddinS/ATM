@@ -15,8 +15,8 @@
         activate();
 
         function activate() {
-            if ($rootScope.isAuthenticated) {
-                $location.path('/');
+            if (localStorage.getItem('accessToken')!==null) {
+                $location.path('/balance');
             }
         }
 
