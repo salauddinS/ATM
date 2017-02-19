@@ -3,20 +3,24 @@
 
     angular.module('ATMapp').controller('MessageController', MessageController);
 
-    MessageController.$inject = ['$uibModalInstance', 'transaction', '$location', '$interval'];
+    MessageController.$inject = ['$uibModalInstance', 'payload', '$location', '$interval'];
 
     /* @ngInject */
-    function MessageController($uibModalInstance, transaction, $location, $interval) {
+    function MessageController($uibModalInstance, payload, $location, $interval) {
         /* jshint validthis: true */
         var vm = this;
         var time;
-        vm.transaction = transaction
+        vm.isLoginError=false;
+        vm.payload = payload
         vm.counter = 10;
         vm.ok = ok;
 
         activate();
 
         function activate() {
+            if(vm.payload.isLoginError) {
+                vm.isLoginError=true;
+            }
             time = $interval(function () {
                 if (vm.counter === 1) {
                     vm.ok();

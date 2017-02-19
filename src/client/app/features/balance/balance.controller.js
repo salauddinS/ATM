@@ -38,7 +38,7 @@
             if (isMultipleOfHundred()) {
                 atmService.withdrawAmount({ amountToWithDraw: vm.withdrawalAmt }).then(function (response) {
                     console.log(response.data)
-                    open(response.data);
+                    openMessage(response.data);
                 }, function (err) {
                     console.log(err);
                 });
@@ -57,13 +57,13 @@
             }
         }
 
-        function open(transaction) {
+        function openMessage(transaction) {
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'app/features/message/message.html',
                 controller: 'MessageController as vm',
                 resolve: {
-                    transaction: function () {
+                    payload: function () {
                         return transaction;
                     }
                 }

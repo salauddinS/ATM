@@ -2,15 +2,20 @@
     <h3 class="modal-title" id="modal-title">Message</h3>
 </div>
 <div class="modal-body">
-    <div ng-if="vm.transaction.isValid">
-        <div>There are your <b>${{vm.transaction.amountToWithDraw}}</b></div>
-        <div>Current Balance is <b>${{vm.transaction.currentBalance}}</b></div>
+    <div ng-if='!vm.isLoginError'>
+        <div ng-if="vm.payload.isValid">
+            <h3>There are your <b>${{vm.payload.amountToWithDraw}}</b></h3>
+            <h3>Current Balance is <b>${{vm.payload.currentBalance}}</b></h3div>
+        </div>
+        <div ng-if="!vm.payload.isValid">
+            <h3><b>Error : {{vm.payload.message}}</b></h3>
+        </div>
+        <br/>
+        <h4><span class="label label-warning">Please do not forget to remove the card</span></h4>
     </div>
-    <div ng-if="!vm.transaction.isValid">
-        <div><b>Error : {{vm.transaction.message}}</b></div>
+    <div ng-if="vm.isLoginError">
+        <div class="alert alert-danger" role="alert">Invalid card number or pin code</div>
     </div>
-    <br/>
-    <h4><span class="label label-warning">Please do not forget to remove the card</span><h4>
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK ({{vm.counter}})</button>
