@@ -13,7 +13,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2">User Name:</label>
                             <div class="col-sm-4" ng-class="{ 'has-error' : myForm.userName.$invalid && !myForm.userName.$pristine }">
-                                <input type="text" name="userName" class="form-control" maxlength="64" pattern="^[A-z]+$" title="Fill in name" data-ng-model="vm.account.userName"
+                                                        <input type="text" name="userName" class="form-control" maxlength="64" title="Fill in name" data-ng-model="vm.account.userName"
                                     required>
                                 <p ng-show="myForm.userName.$invalid && !myForm.userName.$pristine" class="help-block">Please Enter User Name</p>
                             </div>

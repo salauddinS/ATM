@@ -10,6 +10,7 @@
                         </div>
                     </div>
                     <div class="portlet-body">
+                       
                         <div class="table-responsive">
                             <table class="table table-balance-info">
                                 <tr>
@@ -50,31 +51,21 @@
                 <div class="portlet" ng-show="vm.panelVisibility">
 
                     <div class="portlet-body">
+                        <form class="form-horizontal" name="myForm">
+                            <div class="form-group">
+                                <label class="control-label col-sm-6">Withdrawal Amount</label>
+                                <div class="col-sm-6" ng-class="{ 'has-error' : myForm.password.$invalid && !myForm.password.$pristine }">
+                                    <input type="text" class="form-control" ng-model="vm.withdrawalAmt" placeholder="Enter Amount" required="" autofocus="" />
+                                    <p ng-show="vm.isDisabled" class="help-block">Please Enter Amount In Multiples Of 100</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-6 col-sm-4">
+                                    <button class="btn btn-primary" type="button" ng-click="vm.withdrawMoney()">Confirm</button>
+                                </div>
+                            </div>
+                        </form>
 
-                        <div class="table-responsive">
-                            <table class="table table-balance-info">
-                                <tr>
-                                    <td><b>Withdrawal Amount</b></td>
-                                    <td><input type="text" class="form-control" ng-model="vm.withdrawalAmt" placeholder="Enter Amount"
-                                            required="" autofocus="" />
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                    </td>
-                                    <td>
-                                        <p ng-show="vm.isDisabled" class="help-block">Please Enter Amount In Multiples Of 100</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <button class="btn btn-primary" type="button" ng-click="vm.withdrawMoney()">Confirm</button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
 
                     </div>
                 </div>
