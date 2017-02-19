@@ -10,6 +10,7 @@
         /* jshint validthis: true */
         var vm = this;
         vm.panelVisibility = false;
+        vm.isDisabled = false;
         vm.showPanel = showPanel;
         vm.withdrawMoney = withdrawMoney;
         vm.userDetail = {};
@@ -24,7 +25,7 @@
         function getUserDetail() {
             atmService.getUserDetail().then(function (response) {
                 vm.userDetail = response.data;
-            },function (err) {
+            }, function (err) {
                 console.log(err);
             });
         }
@@ -34,13 +35,28 @@
         }
 
         function withdrawMoney() {
-            atmService.withdrawAmount({ amountToWithDraw: vm.withdrawalAmt }).then(function (response) {
-                console.log(response.data)
-                open(response.data);
-            },function (err) {
-                console.log(err);
-            });
+            if (isMultipleOfHundred()) {
+                atmService.withdrawAmount({ amountToWithDraw: vm.withdrawalAmt }).then(function (response) {
+                    console.log(response.data)
+                    open(response.data);
+                }, function (err) {
+                    console.log(err);
+                });
+            }
+
         }
+
+        function isMultipleOfHundred() {
+            if (parseInt(vm.withdrawalAmt) % 100 === 0) {
+                vm.isDisabled = false;
+                return true;
+            }
+            else {
+                vm.isDisabled = true;
+                return false;
+            }
+        }
+
         function open(transaction) {
             var modalInstance = $uibModal.open({
                 animation: true,
