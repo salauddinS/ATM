@@ -3,10 +3,10 @@
 
     angular.module('ATMapp').controller('MessageController', MessageController);
 
-    MessageController.$inject = ['$uibModalInstance', 'payload', '$location', '$interval'];
+    MessageController.$inject = ['$uibModalInstance', 'payload', '$location', '$interval','$rootScope'];
 
     /* @ngInject */
-    function MessageController($uibModalInstance, payload, $location, $interval) {
+    function MessageController($uibModalInstance, payload, $location, $interval,$rootScope) {
         /* jshint validthis: true */
         var vm = this;
         var time;
@@ -31,6 +31,7 @@
         function ok() {
             $interval.cancel(time)
             localStorage.clear();
+            $rootScope.$broadcast('onloggedOut')
             $uibModalInstance.dismiss('cancel');
             $location.path('/login');
         }

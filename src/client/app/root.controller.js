@@ -27,5 +27,8 @@
         $rootScope.$on('loggedInSuccessfull', function () {
             $rootScope.isAuthenticated = vm.isAuthenticated = true;
         })
+        $rootScope.$on('onloggedOut', function () {
+            $rootScope.isAuthenticated = vm.isAuthenticated = false;
+        })
     }
 })();

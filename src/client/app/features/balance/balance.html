@@ -5,44 +5,49 @@
                 <div class="portlet">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="glyphicon glyphicon-calendar"></i>
+                            <i class="glyphicon glyphicon-list"></i>
                             <span class="caption-subject text-uppercase">Account Details</span>
                         </div>
                     </div>
                     <div class="portlet-body">
-                       
-                        <div class="table-responsive">
-                            <table class="table table-balance-info">
-                                <tr>
-                                    <td><b>Account Holder Name</b></td>
-                                    <td>{{vm.userDetail.userName}}</td>
-                                </tr>
-                                <tr>
-                                    <td><b>Account Number :</b></td>
-                                    <td>{{vm.userDetail.accountNumber}}</td>
-                                </tr>
-                                <tr>
-                                    <td><b>Card Number :</b></td>
-                                    <td>{{vm.userDetail.cardNumber}}</td>
-                                </tr>
-                                <tr>
-                                    <td><b>Expiration Date :</b></td>
-                                    <td>{{vm.userDetail.expirationDate}}</td>
-                                </tr>
-                                <tr>
-                                    <td><b>Balance Amount :</b></td>
-                                    <td>$ {{vm.userDetail.currentBalance}}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <button class="btn btn-primary" type="button" ng-click="vm.showPanel()">Withdraw Money</button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-
-
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Account Holder Name :</label>
+                                <div class="col-sm-8">
+                                    <p class="form-control-static">{{vm.userDetail.userName}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Account Number :</label>
+                                <div class="col-sm-8">
+                                    <p class="form-control-static">{{vm.userDetail.accountNumber}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Card Number :</label>
+                                <div class="col-sm-8">
+                                    <p class="form-control-static">{{vm.userDetail.cardNumber}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Expiration Date :</label>
+                                <div class="col-sm-8">
+                                    <p class="form-control-static">{{vm.userDetail.expirationDate}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Balance Amount :</label>
+                                <div class="col-sm-8">
+                                    <p class="form-control-static">$ {{vm.userDetail.currentBalance}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4"></label>
+                                <div class="col-sm-8">
+                                    <p class="form-control-static"> <button class="btn btn-primary" type="button" ng-click="vm.showPanel()">Withdraw Money</button></p>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
