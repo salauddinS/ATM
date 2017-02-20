@@ -3,9 +3,7 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')({ lazy: true });
 var browserSync = require('browser-sync');
 var config = require('./gulp.config')();
-var livereload = require('gulp-livereload');
 var Server = require('karma').Server;
-var protractor = require('gulp-protractor').protractor;
 
 var paths = {
     appScripts: 'src/app/**/*.js'

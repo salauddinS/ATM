@@ -5,7 +5,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="glyphicon glyphicon-calendar"></i>
-                        <span class="caption-subject text-uppercase">New Acount</span>
+                        <span class="caption-subject text-uppercase">{{vm.isEdit? 'Edit Account': 'New Account'}}</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -13,15 +13,15 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2">User Name:</label>
                             <div class="col-sm-4" ng-class="{ 'has-error' : myForm.userName.$invalid && !myForm.userName.$pristine }">
-                                                        <input type="text" name="userName" class="form-control" maxlength="64" title="Fill in name" data-ng-model="vm.account.userName"
+                                <input type="text" name="userName" class="form-control" maxlength="64" title="Fill in name" data-ng-model="vm.account.userName"
                                     required>
-                                <p ng-show="myForm.userName.$invalid && !myForm.userName.$pristine" class="help-block">Please Enter User Name</p>
+                                    <p ng-show="myForm.userName.$invalid && !myForm.userName.$pristine" class="help-block">Please Enter User Name</p>
                             </div>
                             <label class="control-label col-sm-2">Account Number:</label>
                             <div class="col-sm-4" ng-class="{ 'has-error' : myForm.accountNumber.$invalid && !myForm.accountNumber.$pristine }">
                                 <input type="text" minlength="20" maxlength="20" name=accountNumber pattern="\d{20}" class="form-control" data-ng-model="vm.account.accountNumber"
                                     required>
-                                <p ng-show="myForm.accountNumber.$invalid && !myForm.accountNumber.$pristine" class="help-block">Please Enter 20 digit Account Number</p>
+                                    <p ng-show="myForm.accountNumber.$invalid && !myForm.accountNumber.$pristine" class="help-block">Please Enter 20 digit Account Number</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -29,12 +29,13 @@
                             <div class="col-sm-4" ng-class="{ 'has-error' : myForm.cardNumber.$invalid && !myForm.cardNumber.$pristine }">
                                 <input type="text" minlength="16" maxlength="16" name="cardNumber" pattern="\d{16}" class="form-control" data-ng-model="vm.account.cardNumber"
                                     required>
-                                <p ng-show="myForm.cardNumber.$invalid && !myForm.cardNumber.$pristine" class="help-block">Please Enter 16 digit Card Number</p>
+                                    <p ng-show="myForm.cardNumber.$invalid && !myForm.cardNumber.$pristine" class="help-block">Please Enter 16 digit Card Number</p>
                             </div>
                             <label class="control-label col-sm-2">Balance:</label>
                             <div class="col-sm-4" ng-class="{ 'has-error' : myForm.currentBalance.$invalid && !myForm.currentBalance.$pristine }">
-                                <input type="text" pattern="\d*" name="currentBalance" minlength="0" class="form-control" data-ng-model="vm.account.currentBalance" required>
-                                <p ng-show="myForm.currentBalance.$invalid && !myForm.currentBalance.$pristine" class="help-block">Please Enter Balance Amount</p>
+                                <input type="text" pattern="\d*" name="currentBalance" minlength="0" class="form-control" data-ng-model="vm.account.currentBalance"
+                                    required>
+                                    <p ng-show="myForm.currentBalance.$invalid && !myForm.currentBalance.$pristine" class="help-block">Please Enter Balance Amount</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -42,12 +43,13 @@
                             <div class="col-sm-4" ng-class="{ 'has-error' : myForm.expirationDate.$invalid && !myForm.expirationDate.$pristine }">
                                 <input type="text" class="form-control" name="expirationDate" pattern="\d{1,2}/\d{4}" placeholder="MM/YYYY" data-ng-model="vm.account.expirationDate"
                                     required>
-                                <p ng-show="myForm.expirationDate.$invalid && !myForm.expirationDate.$pristine" class="help-block">Please Enter Date in MM/YYYY Format</p>
+                                    <p ng-show="myForm.expirationDate.$invalid && !myForm.expirationDate.$pristine" class="help-block">Please Enter Date in MM/YYYY Format</p>
                             </div>
                             <label class="control-label col-sm-2">PinCode:</label>
                             <div class="col-sm-4" ng-class="{ 'has-error' : myForm.pinCode.$invalid && !myForm.pinCode.$pristine }">
-                                <input type="text" class="form-control" name="pinCode" pattern="\d{4}" minlength="4" maxlength="4" data-ng-model="vm.account.pinCode" required>
-                                <p ng-show="myForm.pinCode.$invalid && !myForm.pinCode.$pristine" class="help-block">Please Enter 4 Digit Pin Code</p>
+                                <input type="text" class="form-control" name="pinCode" pattern="\d{4}" minlength="4" maxlength="4" data-ng-model="vm.account.pinCode"
+                                    required>
+                                    <p ng-show="myForm.pinCode.$invalid && !myForm.pinCode.$pristine" class="help-block">Please Enter 4 Digit Pin Code</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -66,7 +68,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="glyphicon glyphicon-calendar"></i>
-                        <span class="caption-subject text-uppercase"> Acounts List</span>
+                        <span class="caption-subject text-uppercase"> Accounts List</span>
                     </div>
                     <div class="actions">
                         <a class="btn" ng-click="vm.onAddClick()">

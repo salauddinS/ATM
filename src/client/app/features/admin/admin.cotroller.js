@@ -53,6 +53,7 @@
         }
         function onAddClick(account) {
             vm.isAddEdit = true;
+            vm.isEdit = false;
             vm.account = {};
         }
         function onCancel() {

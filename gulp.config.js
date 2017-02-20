@@ -8,7 +8,8 @@ module.exports = function () {
 
         js: [
             app + '**/*.js',
-            'src/client/assets/css/*.css'
+            'src/client/assets/css/*.css',
+            '!./src/client/app/**/*unit.spec.js'
         ],
         server: server,
         /**
