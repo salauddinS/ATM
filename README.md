@@ -18,15 +18,16 @@ ii)Admin Login for administrators<br>
  Default User Name - <b>admin</b><br>
  Default Password - <b>admin</b><br>
 
-2) Balance : <br>
+#About ATM
+1) Balance : <br>
 i) Balance page displays the current logged in user's account information like User Name, Card Number, Account Number, Pin Code and Current Balance.<br>
 ii)Allows user to withdraw money amount in multiples of 100.<br>
 iii)Displays appropriate balance amount remaining after withdrawal.<br>
 iv)Also, displays appropriate message in case the withdrawal amount exceeds the available amount.<br>
 
-3)Admin<br>
+2)Admin<br>
 i)Admin panel allows the authorized user to add new accounts and edit or delete the existing ones.<br>
 ii)Captures and displays information  like User Name, Card Number, Account Number, Pin Code and Current Balance.<br>
 
-4)Logout<br>
+3)Logout<br>
  Logged in user can logout anytime by clicking the logout link in the top navigation bar.<br>
