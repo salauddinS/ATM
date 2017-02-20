@@ -3,7 +3,7 @@ var path = require('path');
 var app = express();
 var bodyParser = require('body-parser');
 var cors = require('cors');
-
+var port = process.env.PORT || 9001;
 app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, '../client')));
 app.use('/node_modules', express.static(__dirname + '/../../node_modules'));
@@ -18,8 +18,7 @@ app.get('/', function (req, res) {
     res.render('index.html');
 });
 
-var server = app.listen(9001, function () {
+var server = app.listen(port, function () {
     var host = 'localhost';
-    var port = server.address().port;
-    console.log('App listening at http://%s:%s', host, port);
+    console.log('App listening at http://%s:%s', host, server.address().port);
 });

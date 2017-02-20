@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "./node_modules/.bin/webdriver-manager update",
+    "test": "gulp unit",
+    "start":"gulp",
     "node.test": ".\\node_modules\\.bin\\jasmine-node .\\src\\server\\server.unit.spec.js"
   },
   "author": "Salauddin",
@@ -21,8 +21,6 @@
     "ejs": "^2.3.4",
     "express": "^4.13.4",
     "jwt-simple": "^0.3.1",
-    "lodash": "^4.17.4",
-    "moment": "^2.10.6",
     "phantomjs": "^1.9.18",
     "request": "^2.79.0",
     "serve-static": "^1.10.0",
@@ -33,14 +31,12 @@
     "concurrently": "^3.3.0",
     "connect": "^3.4.0",
     "gulp": "^3.9.0",
-    "gulp-angular-protractor": "0.0.6",
     "gulp-concat": "^2.6.0",
     "gulp-inject": "^2.2.0",
     "gulp-jshint": "^1.11.2",
     "gulp-livereload": "^3.8.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-nodemon": "^2.0.4",
-    "gulp-protractor": "^1.0.0",
     "gulp-size": "^2.0.0",
     "gulp-uglify": "^1.4.2",
     "jasmine-node": "^1.14.5",
@@ -51,6 +47,5 @@
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "opn": "^3.0.2",
-    "protractor": "^2.5.1"
   }
 }

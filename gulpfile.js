@@ -3,7 +3,6 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')({ lazy: true });
 var browserSync = require('browser-sync');
 var config = require('./gulp.config')();
-// var wiredep = require('wiredep');
 var livereload = require('gulp-livereload');
 var Server = require('karma').Server;
 var protractor = require('gulp-protractor').protractor;
@@ -11,45 +10,15 @@ var protractor = require('gulp-protractor').protractor;
 var paths = {
     appScripts: 'src/app/**/*.js'
 };
-var port = 8082;
-gulp.task('scripts', function () {
-    return gulp.src([paths.appScripts])
-        .pipe(plugins.jshint())
-        .pipe(plugins.jshint.reporter(require('jshint-stylish')))
-        .pipe(plugins.size());
-});
+var port = process.env.PORT || config.defaultPort;
+
 gulp.task('unit', function (done) {
-    //log('Starting Unit testing');
+    console.log('Starting Unit testing');
     new Server({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
     }).start();
 });
-gulp.task('watch', ['serve'], function () {
-    livereload.listen();
-
-    gulp.watch([
-        'src/**/*.html',
-        'src/**/*.js',
-        'src/styles/*.css'
-    ]).on('change', function (file) {
-        console.log('File changed: ' + file.path);
-        livereload.changed(file.path); //YES (by itself)
-        //livereload.reload(); //YES (by itself)
-    });
-
-    gulp.watch(paths.appScripts, ['scripts']);
-});
-gulp.task('server', function () {
-    console.log('Starting Server ');
-    plugins.nodemon({
-        script: './src/server/server.js', ext: 'js html', env: { 'NODE_ENV': 'development' }
-    })
-        .on('restart', function () {
-            console.log('server restarted!');
-        });
-});
-
 gulp.task('injectjs', function () {
     return gulp.src(config.index)
         .pipe(plugins.inject(gulp.src(config.js), { relative: true }))
@@ -57,7 +26,7 @@ gulp.task('injectjs', function () {
 
 });
 
-gulp.task('default',['injectjs'], function () {
+gulp.task('default', ['injectjs'], function () {
     // require('opn')('http://localhost:9000');
     var isDev = true
     var nodeOptions = {
@@ -71,48 +40,35 @@ gulp.task('default',['injectjs'], function () {
     };
 
     return plugins.nodemon(nodeOptions)
-        .on('restart', function (event) {
-           console.log('nodemon restarted');
-             console.log('files changed on restart:\n' + event);
+        .on('restart', function (ev) {
+            console.log('*** nodemon restarted');
+            console.log('files changed on restart:\n' + ev);
             setTimeout(function () {
                 browserSync.notify('reloading now ...');
                 browserSync.reload({ stream: false });
-            }, 1000);
+            }, config.browserReloadDelay);
         })
         .on('start', function () {
-            console.log('nodemon started');
-            startBrowserSync(isDev);
+            console.log('*** nodemon started');
+            startBrowserSync();
         })
-        .on('crash', function (event) {
-             console.log('nodemon crashed: script crashed for some reason');
-             console.log('files changed on restart:\n' + event);
+        .on('crash', function () {
+            console.log('*** nodemon crashed: script crashed for some reason');
         })
         .on('exit', function () {
-           console.log('nodemon exited cleanly');
+            console.log('*** nodemon exited cleanly');
         });
 });
-
-gulp.task('connect', function () {
-    //     var app = connect()
-    //         .use(serveStatic('src'));
-    // 
-    //     require('http').createServer(app)
-    //         .listen(9000)
-    //         .on('listening', function () {
-    //             console.log('Started connect web server on http://localhost:9000');
-    //         });
-});
-
 
 function startBrowserSync(isDev) {
     if (browserSync.active) {
         return;
     }
-    log('Starting browser-sync on port ' + port);
+    console.log('Starting browser-sync on port ' + port);
     var options = {
         proxy: 'localhost:' + port,
-        port: 9001,
-        files: [config.js],
+        port: 3000,
+        files: ['src/client/**/*.*','src/client/assets/css/*.css'],
         ghostMode: {
             clicks: true,
             location: false,
@@ -130,14 +86,3 @@ function startBrowserSync(isDev) {
 }
 
 
-function log(msg) {
-    if (typeof (msg) === 'object') {
-        for (var item in msg) {
-            if (msg.hasOwnProperty(item)) {
-                plugins.util.log(plugins.util.colors.blue('*** ' + msg[item] + ' ***'));
-            }
-        }
-    } else {
-        plugins.util.log(plugins.util.colors.blue('*** ' + msg + ' ***'));
-    }
-}
