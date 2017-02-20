@@ -6,7 +6,7 @@
 1)`npm run test` : To run unit test for angular app.<br>
 
 <h3>Server unit test</h3>
-First run `npm start` then open in another terminal run  `npm run node.test`
+First run `npm start` then open another terminal and run  `npm run node.test`
 
 # Credentials
 1)Login : <br>
